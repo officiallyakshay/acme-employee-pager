@@ -44,7 +44,7 @@
   const usersList = document.querySelector('#usersList');
 	const fetchData = async() => {
 		const usersArr = [];
-		const response = await fetch(`https://acme-users-api-rev.herokuapp.com/api/users`);
+		let response = await fetch(`https://acme-users-api-rev.herokuapp.com/api/users`);
 		const users = await response.json();
 		const userArr = Object.values(users['users']);
 		console.log(userArr)
@@ -60,7 +60,18 @@
 
 	}
 	fetchData();
+
+  /*
+next steps,
+make response changeable (let)
+"Next" dynamically changes response's fetch link (users/1, or users/2 if on users/1)
+'1st' link automatically changes fetch link to users users
+'last' link automatically changes fetch link to users users/2
+
+*/
 </script>
 </body>
 </html>
+
+
 
