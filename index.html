@@ -9,17 +9,26 @@
 	<div id='usersList'></div>
 
 <script>
-
+  const pager = document.querySelector('#pager');
+  const usersList = document.querySelector('#usersList');
 	const fetchData = async() => {
-		const idx = window.location.hash
+		const usersArr = [];
 		const response = await fetch(`https://acme-users-api-rev.herokuapp.com/api/users`);
 		const users = await response.json();
-		console.log('hi');
-		console.log(response);
-		console.log(users);
+		const userArr = Object.values(users['users']);
+		console.log(userArr)
+    	const html = userArr.map( user => `
+      <table>
+        <tr>
+          <td>${user.fullName}</td>
+        </tr>
+      </table>
+    `).join('');
+    usersList.innerHTML = html;
+	
 	}
 	fetchData();
-
 </script>
 </body>
 </html>
+
