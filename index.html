@@ -2,11 +2,25 @@
 <html>
 <head>
 
+	<style>
+		#header {
+			justify-content: space-around;
+		}
+	</style>
+
 </head>
 <body>
 	<h1>Acme Employee Lister</h1>
 	<div id='pager'></div>
-	<div id='usersList'></div>
+	<table id='header'>
+		<tr>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>Email</td>
+			<td>Title</td>
+		</tr>
+	</table>
+	<table id='usersList'></table>
 
 <script>
   const pager = document.querySelector('#pager');
@@ -18,11 +32,12 @@
 		const userArr = Object.values(users['users']);
 		console.log(userArr)
     	const html = userArr.map( user => `
-      <table>
         <tr>
-          <td>${user.fullName}</td>
+          <td>${user.firstName}</td>
+          <td>${user.lastName}</td>
+          <td>${user.email}</td>
+          <td>${user.title}</td>
         </tr>
-      </table>
     `).join('');
     usersList.innerHTML = html;
 	
