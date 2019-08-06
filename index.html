@@ -4,22 +4,39 @@
 
 	<style>
 		#header {
-			justify-content: space-around;
+			background-color: dodgerblue;
+      color: white;
+
 		}
+    #headerBox {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    table {
+      width: 100%;
+    }
+    .tableBox {
+      display: flex;
+      justify-content: space-around;
+    }
+    #userList > td {
+      border-bottom: 1px solid black;
+    }
 	</style>
 
 </head>
 <body>
 	<h1>Acme Employee Lister</h1>
 	<div id='pager'></div>
-	<table id='header'>
-		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>Email</td>
-			<td>Title</td>
-		</tr>
-	</table>
+	<div id='header'>
+		<div id='headerBox'>
+			<div>First Name</div>
+			<div>Last Name</div>
+			<div>Email</div>
+			<div>Title</div>
+		</div>
+	</div>
 	<table id='usersList'></table>
 
 <script>
@@ -32,7 +49,7 @@
 		const userArr = Object.values(users['users']);
 		console.log(userArr)
     	const html = userArr.map( user => `
-        <tr>
+        <tr class='tableBox'>
           <td>${user.firstName}</td>
           <td>${user.lastName}</td>
           <td>${user.email}</td>
@@ -40,7 +57,7 @@
         </tr>
     `).join('');
     usersList.innerHTML = html;
-	
+
 	}
 	fetchData();
 </script>
