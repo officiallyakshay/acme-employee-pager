@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+
 </head>
 <body>
 	<h1>Acme Employee Lister</h1>
 	<div id='pager'></div>
 	<div id='usersList'></div>
+
+<script>
+
+	const fetchData = async() => {
+		const idx = window.location.hash
+		const response = await fetch(`https://acme-users-api-rev.herokuapp.com/api/users`);
+		const users = await response.json();
+		console.log('hi');
+		console.log(response);
+		console.log(users);
+	}
+	fetchData();
+
+</script>
 </body>
 </html>
