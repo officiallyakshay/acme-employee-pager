@@ -9,49 +9,26 @@
 	<div id='usersList'></div>
 
 <script>
-<<<<<<< HEAD
   const pager = document.querySelector('#pager');
   const usersList = document.querySelector('#usersList');
-=======
-
-  const pager = document.querySelector('#pager');
-  const usersList = document.querySelector('#usersList');
-
-
->>>>>>> 600318dfde0bf8ce2ae417ca430e5286561ba81a
 	const fetchData = async() => {
 		const usersArr = [];
 		const response = await fetch(`https://acme-users-api-rev.herokuapp.com/api/users`);
 		const users = await response.json();
-<<<<<<< HEAD
 		const userArr = Object.values(users['users']);
 		console.log(userArr)
     	const html = userArr.map( user => `
       <table>
         <tr>
           <td>${user.fullName}</td>
-=======
-    const html = Object.keys(users).map( user => console.log(user) `
-      <table>
-        <tr>
-          <td>${users.fullName}</td>
->>>>>>> 600318dfde0bf8ce2ae417ca430e5286561ba81a
         </tr>
       </table>
     `).join('');
     usersList.innerHTML = html;
-<<<<<<< HEAD
 	
-=======
-    console.log(html);
-		console.log(response);
->>>>>>> 600318dfde0bf8ce2ae417ca430e5286561ba81a
 	}
 	fetchData();
 </script>
 </body>
 </html>
-<<<<<<< HEAD
 
-=======
->>>>>>> 600318dfde0bf8ce2ae417ca430e5286561ba81a
