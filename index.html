@@ -10,17 +10,24 @@
 
 <script>
 
-  const pager = document.querySelector('pager');
-  const usersList = document.querySelector('userList');
+  const pager = document.querySelector('#pager');
+  const usersList = document.querySelector('#usersList');
 
 
 	const fetchData = async() => {
-		const idx = window.location.hash
+		const usersArr = [];
 		const response = await fetch(`https://acme-users-api-rev.herokuapp.com/api/users`);
-		const data = await response.json();
-		console.log('hi');
+		const users = await response.json();
+    const html = Object.keys(users).map( user => console.log(user) `
+      <table>
+        <tr>
+          <td>${users.fullName}</td>
+        </tr>
+      </table>
+    `).join('');
+    usersList.innerHTML = html;
+    console.log(html);
 		console.log(response);
-		console.log(data);
 	}
 	fetchData();
 
